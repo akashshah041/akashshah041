@@ -11,3 +11,8 @@ gbfd
 sfgb
 ds
 f
+total 16
+drwxrwx--- 3 akashkumars akashkumars 4096 Dec 26 05:06 .
+drwx------ 5 akashkumars akashkumars 4096 Dec 26 04:52 ..
+-rw-rw---- 1 akashkumars akashkumars   46 Dec 26 05:06 aka.txt
+drwxrwx--- 8 akashkumars akashkumars 4096 Dec 26 05:06 .git
