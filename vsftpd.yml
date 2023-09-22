@@ -1,0 +1,21 @@
+---
+- name: install and start the vsftpd server
+  hosts: slave
+  become: true
+  tasks:
+    - name: install the vsftpd server
+      yum:
+        name: vsftpd
+        state: latest
+    - name: start the vsftpd server
+      service:
+        name: vsftpd
+        state: started
+        enabled: true
+    - name: move the contens of text 
+      copy:
+       content: 'test this code'
+       dest: /var/ftp/pub/README
+       force: false
+       mode: '0644'
+...
