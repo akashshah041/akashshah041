@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Set the custom hooks path
-git config core.hooksPath hooks
-
