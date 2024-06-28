@@ -14,11 +14,21 @@ process_branch() {
     git checkout "$branch"
 
     # Cherry-pick the commit range
-    git cherry-pick "$start_commit"
+    if git cherry-pick "$start_commit"; then
+        echo "Cherry-pick successful for branch: $branch"
+    else
+        echo "Cherry-pick failed for branch: $branch. Aborting."
+        git cherry-pick --abort
+        return 1
+    fi
+
+    echo "Adding hooks and setup_config.sh"
 
     # Add and commit the hooks and setup_config script
     git add hooks setup_config.sh
     git commit -m "Add hooks and setup_config"
+
+    echo "Pushing changes to remote branch: $branch"
 
     # Push the changes to the remote branch
     git push origin "$branch"
@@ -32,6 +42,7 @@ branches=(
 
 # Loop through each branch and process it
 for branch_info in "${branches[@]}"; do
+    IFS=' ' read -r branch start_commit <<< "$branch_info"
     process_branch "$branch" "$start_commit"
 done
 
