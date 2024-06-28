@@ -56,7 +56,7 @@ hasNoSpaces() {
 # Function to check if a filename matches any pattern in an array
 matchesAnyPattern() {
     local fileName="$1"
-    shift
+     shift
     local patterns=("$@")    
     for pattern in "${patterns[@]}"; do
         if [[ "$fileName" == *"$pattern"* ]]; then
