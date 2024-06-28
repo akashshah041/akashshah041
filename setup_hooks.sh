@@ -14,12 +14,7 @@ process_branch() {
     git checkout "$branch"
 
     # Cherry-pick the commit range
-    git cherry-pick "$start_commit" || {
-        echo "Cherry-pick encountered conflicts. Resolving conflicts..."
-        git status -s | grep "^UU" | cut -d " " -f2 | xargs git add
-        git cherry-pick --continue
-        git stash push -u
-    }
+    git cherry-pick "$start_commit"
 
     # Add and commit the hooks and setup_config script
     git add hooks setup_config.sh
@@ -37,7 +32,6 @@ branches=(
 
 # Loop through each branch and process it
 for branch_info in "${branches[@]}"; do
-    IFS=' ' read -r branch start_commit  <<< "$branch_info"
     process_branch "$branch" "$start_commit"
 done
 
