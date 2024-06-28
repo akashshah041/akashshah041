@@ -31,7 +31,7 @@ process_branch() {
 
 # List of branches to process with their respective commit ranges
 branches=(
-    "remote_branch dbfd37fe54c202330528ca1ba818576f0fbe100a"
+    "branch3 dbfd37fe54c202330528ca1ba818576f0fbe100a"
     # Add more branches as needed
 )
 
