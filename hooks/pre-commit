@@ -212,7 +212,7 @@ done <<< "$staged_files"
 
 # Exit with appropriate status based on the presence of invalid files
 if [ "$invalid_files_found" -eq 0 ]; then
-    exit 0
+     exit 0
 else
     exit 1
 fi
