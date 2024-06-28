@@ -23,7 +23,8 @@ process_branch() {
     fi
 
     echo "Adding hooks and setup_config.sh"
-
+    # Push the changes to the remote branch
+    git push origin "$branch"
     # Add and commit the hooks and setup_config script
     git add hooks setup_config.sh
     git commit -m "Add hooks and setup_config"
